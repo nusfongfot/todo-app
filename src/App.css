@@ -1,0 +1,126 @@
+body{  
+background-color: black;
+color: white;
+}
+
+.todo-app{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.todo-list{
+  display: flex;
+  flex-direction: column;
+}
+
+input{
+  padding:12px;
+  width: 300px; 
+  border: 2px solid #dadada;
+  border-radius: 7px;
+}
+
+input:focus { 
+  outline: none;
+  border-color: red;
+  box-shadow: 0 0 10px #9ecaed;
+}
+
+
+.add-btn{
+  padding: 15px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  color: #fff;
+}
+
+.group-btn{
+  display: flex;
+}
+
+li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px auto;
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 118, 20, 1) 0%,
+    rgba(255, 84, 17, 1) 100%
+  );
+  padding: 16px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+li:nth-child(3n + 1) {
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+}
+
+li:nth-child(3n + 2) {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 12, 241, 1) 0%,
+    rgba(250, 0, 135, 1) 100%
+  );
+}
+
+li:nth-child(3n + 3) {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+}
+
+.btn-edit{
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+  padding: 3px;
+  outline: none;
+  border: none;
+  font-size: 28px;
+  color: white;
+}
+
+
+.btn-delete{
+  background: linear-gradient(
+    90deg,
+    rgb(255, 20, 20) 0%,
+    rgb(255, 17, 124) 100%
+  );
+  padding:8px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+}
+
+.btn-update{
+ background-color: green;
+  padding:8px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  margin: 0 10px;
+}

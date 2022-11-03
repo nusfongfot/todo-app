@@ -1,28 +1,27 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import { TiEdit } from "react-icons/ti";
-<i class="fa-solid fa-pen-to-square"></i>;
+import { useEffect, useState } from "react"
+import "./App.css"
+import { TiEdit } from "react-icons/ti"
 
 function App() {
   const [todos, setTodos] = useState(() => {
-    const saveTodos = localStorage.getItem("todos");
+    const saveTodos = localStorage.getItem("todos")
 
     if (saveTodos) {
-      return JSON.parse(saveTodos); //convert js(data) to Object
+      return JSON.parse(saveTodos) //convert js(data) to Object
     } else {
-      return [];
+      return []
     }
-  });
-  const [todo, setTodo] = useState("");
-  const [isEditing, setEditing] = useState(false);
-  const [currentTodo, setCurrentTodo] = useState({});
+  })
+  const [todo, setTodo] = useState("")
+  const [isEditing, setEditing] = useState(false)
+  const [currentTodo, setCurrentTodo] = useState({})
 
   function handleInputChange(e) {
-    setTodo(e.target.value);
+    setTodo(e.target.value)
   }
 
   function handleFormSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     if (todo !== "") {
       setTodos([
         ...todos,
@@ -30,21 +29,21 @@ function App() {
           id: todos.length + 1,
           text: todo.trim(),
         },
-      ]);
+      ])
     }
-    setTodo("");
+    setTodo("")
   }
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }, [todos])
 
   function handleDeleteClick(id) {
     const removeItem = todos.filter((todo) => {
-      return todo.id !== id;
-    });
+      return todo.id !== id
+    })
 
-    setTodos(removeItem);
+    setTodos(removeItem)
   }
 
   //get ค่า เวลา edit input แล้ว set กลับไปใหม่
@@ -52,27 +51,27 @@ function App() {
     setCurrentTodo({
       ...currentTodo,
       text: e.target.value,
-    });
-    console.log("current Todo", currentTodo);
+    })
+    console.log("current Todo", currentTodo)
   }
 
   function handleEditClick(todo) {
-    setEditing(true);
-    setCurrentTodo({ ...todo });
+    setEditing(true)
+    setCurrentTodo({ ...todo })
   }
 
   //update
   function hadleUpdateTodo(id, updatedTodo) {
     const updatedItem = todos.map((todo) => {
-      return todo.id === id ? updatedTodo : todo;
-    });
-    setEditing(false);
-    setTodos(updatedItem);
+      return todo.id === id ? updatedTodo : todo
+    })
+    setEditing(false)
+    setTodos(updatedItem)
   }
 
   function handleEditFormSubmit(e) {
-    e.preventDefault();
-    hadleUpdateTodo(currentTodo.id, currentTodo);
+    e.preventDefault()
+    hadleUpdateTodo(currentTodo.id, currentTodo)
   }
 
   return (
@@ -130,11 +129,11 @@ function App() {
                 </button>
               </div>
             </li>
-          );
+          )
         })}
       </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
